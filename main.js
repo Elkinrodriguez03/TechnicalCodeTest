@@ -124,10 +124,10 @@ async function fetchData(urlApi) {
          carousel.classList.remove("no-transition")
     }
 
-    // clearTimeout(timeoutId);
-    //   if (!carouselContainer.matches(":hover")) {
-    //         autoPlay();
-    //   }
+    clearTimeout(timeoutId);
+      if (!carouselContainer.matches(":hover")) {
+            autoPlay();
+      }
   }
 
   carousel.addEventListener("mousemove", dragging);
