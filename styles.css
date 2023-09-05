@@ -420,8 +420,8 @@ input[type=email] {
     .footer-decoration img:nth-child(3) {
         width: 30px;
         position: absolute;
-        right: 210px;
-        bottom: 170px;    
+        right: 180px;
+        bottom: 150px;
     }
     
     .footer-decoration img:nth-child(4) {

@@ -14,6 +14,35 @@ async function fetchData(urlApi) {
 (async () => {
   try {
     const allProducts = await fetchData(url);
+
+    function generateStars(tagValue) {
+      let numStars;
+
+      switch (true) {
+        case tagValue >= 0 && tagValue < 100:
+          numStars = 1;      
+          break;
+        case tagValue >= 100 && tagValue < 200:
+          numStars = 2;
+          break;
+        case tagValue >= 200 && tagValue < 300:
+          numStars = 3;
+          break;
+        case tagValue >= 300 && tagValue < 400:
+          numStars = 4;
+          break;
+        case tagValue >= 400 && tagValue <= 500:
+          numStars = 5;
+          break;
+      };
+
+      let showStars = "";
+      for (let i = 0; i < numStars; i++) {
+        showStars += `<img src="./src/images/star.png" alt="star" class="star-icon">`;
+      }
+      return showStars;
+    };
+
     let view = `
     <div class="carousel">
     ${allProducts.map((product) => (`
@@ -26,12 +55,8 @@ async function fetchData(urlApi) {
           <h3>${product.title}</h3>
             <div class="product-detail">
               <div class="rate-container">
-                <div class="star">
-                  <img src="./src/images/star.png" alt="star" class="star-icon">
-                  <img src="./src/images/star.png" alt="star" class="star-icon">
-                  <img src="./src/images/star.png" alt="star" class="star-icon">
-                  <img src="./src/images/star.png" alt="star" class="star-icon">
-                  <img src="./src/images/star.png" alt="star" class="star-icon">
+                <div class="stars">
+                  ${generateStars(product.tags[0])}
                 </div>
                 <p>(${product.tags[0]})</p>
               </div>
@@ -54,17 +79,6 @@ async function fetchData(urlApi) {
   const arrowBtns = [leftBtn, rightBtn];
   const firtsCardWidth = carousel.querySelector(".carousel-item").offsetWidth;
   const carouselChildrens = [...carousel.children];
-
-  const rateContainer = carousel.querySelector('.rate-container .star');
-
-  let newImage = document.createElement('img');
-
-  newImage.src = './src/images/star.png';
-  newImage.alt = "star";
-  newImage.classList.add('star-icon');
-
-  rateContainer.appendChild(newImage);
-
                   
   let isDragging = false, startX, startScrollLeft, timeoutId;
 
