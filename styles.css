@@ -89,8 +89,8 @@ h1 {
     padding: 10px;
     box-shadow: 0 0 15px 20px rgba(207, 207, 207, 0.3);
     color: var(--clr-dark);
-    border: none;
     cursor: pointer;
+    border: none;
 }
 
 .carousel-container {
@@ -129,33 +129,35 @@ h1 {
 
 .carousel .carousel-item {
     scroll-snap-align: start;
-    cursor: pointer;
     flex-direction: column;
-    padding-bottom: 15px;
+    cursor: pointer;
 }
 
 .carousel-item {
     display: flex;
-
 }
 
 .image-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
 }
 
-.image-container img {
+.image-wrapper {
+    position: relative;
+}
+
+.image-wrapper img {
     display: block;
 }
 
-.image-container .secondary-button {
+.image-wrapper button {
     width: 90%;
     position: relative;
-    top: 330px;
+    top: -30px;
 }
 
 .product-info {
-    margin-top: 12px;
+    position: relative;
+    top: -30px;
     font-family: var(--ff-secondary);
     font-size: var(--fs-h2);
     color: var(--clr-dark);
@@ -318,12 +320,6 @@ input[type=email] {
     fill: var(--clr-light);
 }
 
-@media screen and (max-width: 600px) {
-    .carousel-container .carousel {
-        grid-auto-columns: 100%;
-    }
-}
-
 @media screen and (max-width: 900px) {
     .header-container {
         display: flex;
@@ -355,13 +351,13 @@ input[type=email] {
 
     .carousel-prev,
     .carousel-next {
-    border-radius: 50%;
-    background-color: var(--clr-light);
-    padding: 20px;
-    box-shadow: 0 0 15px 20px rgba(207, 207, 207, 0.3);
-    color: var(--clr-dark);
-    border: none;
-    cursor: pointer;
+        border-radius: 50%;
+        background-color: var(--clr-light);
+        padding: 20px;
+        box-shadow: 0 0 15px 20px rgba(207, 207, 207, 0.3);
+        color: var(--clr-dark);
+        border: none;
+        cursor: pointer;
     }
 
     .carousel-btn-container .oval-shade-button {
@@ -371,15 +367,22 @@ input[type=email] {
         width: 80px;
         background-color: var(--clr-button);
         border-radius: 24px;
-    
-    }
+    }    
 
     .carousel-container {
-    margin: 10px;
+        margin: 40px;
     }
 
-    .carousel-container .carousel {
-        grid-auto-columns: calc((100% / 2) -9px);
+    .product-detail {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: var(--clr-gray);
+        margin-top: 9px;
+    }
+
+    .rate-container {
+        margin-bottom: 5px;
     }
 
     .send-container div {
@@ -420,7 +423,7 @@ input[type=email] {
     .footer-decoration img:nth-child(3) {
         width: 30px;
         position: absolute;
-        right: 180px;
+        right: 120px;
         bottom: 150px;
     }
     
@@ -433,7 +436,7 @@ input[type=email] {
     .footer-decoration img:nth-child(5) {
         width: 70px;
         position: absolute;
-        right: 50px;
+        right: 30px;
         bottom: 220px;
     }
 }

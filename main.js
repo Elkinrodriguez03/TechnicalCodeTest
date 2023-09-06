@@ -1,7 +1,7 @@
 const url = 'https://gradistore-spi.herokuapp.com/products/all';
 
 
-const content = document.getElementById('content');
+const carouselContent = document.getElementById('carousel');
 
 async function fetchData(urlApi) {
   const response = await fetch(urlApi);
@@ -48,8 +48,10 @@ async function fetchData(urlApi) {
     ${allProducts.map((product) => (`
     <div class="carousel-item">
       <div class="image-container">
-        <button class="secondary-button">ADD TO CART</button>
-        <img src=${product.featuredImage.url} alt=${product.title} draggable="false">
+        <div class="image-wrapper">
+          <img src=${product.featuredImage.url} alt=${product.title} draggable="false">
+          <button class="secondary-button">ADD TO CART</button>
+        </div>
       </div>
         <div class="product-info">
           <h3>${product.title}</h3>
@@ -70,7 +72,7 @@ async function fetchData(urlApi) {
     `)).join("")}
     </div>
   `;
-  content.innerHTML = view
+  carouselContent.innerHTML = view
 
   const carouselContainer = document.querySelector(".carousel-container"); 
   const carousel = document.querySelector('.carousel');
